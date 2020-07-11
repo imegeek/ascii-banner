@@ -38,9 +38,9 @@ printf "
 
 #>.........................................
 
-reqirements() {
+requirements() {
 if [ ! -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
-echo -ne "\e[0m[⬇] Installing Reqirements & FONTS... \r"
+echo -ne "\e[0m[⬇] Installing Requirements & FONTS... \r"
 command -v tput > /dev/null 2>&1 || { apt install ncurses-utils &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 if [[ "$connection" != 0 ]]
 then clear
@@ -85,7 +85,7 @@ rm setup && rm LICENSE && rm README.md
 mv * $PREFIX/share/figlet
 cd $HOME
 rm -rf $PREFIX/share/FONTS-F
-echo -ne "[√] Reqirements & FONTS Installed         \r"
+echo -ne "[√] Requirements & FONTS Installed         \r"
 sleep 1
 echo -ne "                                          \r"
 tput cnorm
@@ -430,7 +430,7 @@ fi
 
 trap '' 2
 t-banner
-reqirements
+requirements
 options
 trap 5
 
