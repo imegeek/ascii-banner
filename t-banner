@@ -197,6 +197,7 @@ figlet -f '3D-ASCII' "$input"
 figlet -f 'Shadow R' "'$input'"
 figlet -f 'Shadow S' "'$input'"
 figlet -f 'Bloody' "$input";echo
+figlet -f 'figfont' "$input";echo
 figlet -f 'Calvin S' "'$input'";echo
 figlet -f 'Delta Corps Priest 1' "$input"
 figlet -f 'Electronic' "$input"
