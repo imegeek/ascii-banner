@@ -272,6 +272,12 @@ figlet -f 'Digital' "$input"
 figlet -f 'Dot Matrix' "$input"
 figlet -f 'Double Shorts' "$input"
 figlet -f 'Double' "$input"
+
+printf "[?] Do You Want to Load All Fonts [Y/n] ? "
+read out
+if [[ $out = "y" ]] || [[ $out = "Y" ]]; then
+clear
+
 figlet -f 'Dr Pepper' "$input"
 figlet -f 'Efti Chess' "$input"
 figlet -f 'Efti Font' "$input"
@@ -413,6 +419,8 @@ figlet -f 'Univers' "$input"
 figlet -f 'Wavy' "$input"
 figlet -f 'Weird' "$input"
 figlet -f 'Whimsy' "$input";echo
+else echo;exit 1
+fi
 fi
 fi
 }
