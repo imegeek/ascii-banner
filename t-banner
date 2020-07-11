@@ -47,7 +47,7 @@ then clear
 echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
    exit
 fi; }
-tput civis
+
 command -v figlet > /dev/null 2>&1 || { pkg install figlet -y &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 if [[ "$connection" != 0 ]]
 then clear
@@ -88,14 +88,13 @@ rm -rf $PREFIX/share/FONTS-F
 echo -ne "[√] Requirements & FONTS Installed         \r"
 sleep 1
 echo -ne "                                          \r"
-tput cnorm
 fi
 }
 
 #>.........................................
 
 options() {
-tput cnorm ; if [ -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
+if [ -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
 printf "Enter a Text Here > "
 read input
 if [[ $input = "kill" ]] || [[ $input = "exit" ]] || [[ $input = "Kill" ]] || [[ $input = "Exit" ]] || [[ $input = "KILL" ]] || [[ $input = "EXIT" ]]; then
