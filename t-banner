@@ -95,7 +95,7 @@ fi
 #>.........................................
 
 options() {
-if [ -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
+tput cnorm ; if [ -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
 printf "Enter a Text Here > "
 read input
 if [[ $input = "kill" ]] || [[ $input = "exit" ]] || [[ $input = "Kill" ]] || [[ $input = "Exit" ]] || [[ $input = "KILL" ]] || [[ $input = "EXIT" ]]; then
