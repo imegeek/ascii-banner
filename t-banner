@@ -4,7 +4,7 @@
 
 #Colors
 NC='\033[0m'        #Default
-BD='\033[1m\033[0m' #Bold
+BD='\033[1m'        #Bold
 BL='\033[1;90m'     # Black
 R='\033[1;91m'      # Red
 G='\033[1;92m'      # Green
@@ -17,20 +17,18 @@ W='\033[1;97m'      # White
 #>.........................................
 
 #Effects
-E1='lolcat -a -s 100 -d 1 -t'
-E2='lolcat -s 100 -d 1 -t'
-E3='lolcat -a -s 100 -d 1'
-E4='lolcat -a -s 100 -d 1 -t -i'
+E0='lolcat  -F 2 -a -t -d 1 -s 500'
+E1='lolcat -a -t -d 1 -s 500'
 
 #>.........................................
 
 t-banner() {
 clear;
 printf "
- _______         _______  _______  __    _  __    _  _______  ________
-|       |       |  _    ||   _   ||  |  | ||  |  | ||       ||    _   |
-|_     _| ____  | |_|   ||  |_|  ||   |_| ||   |_| ||    ___||   | |  |
-  |   |  |____| |       ||       ||       ||       ||   |___ |   |_|  |_
+ _______         _______  _______  __    _  __    _  _______  ________  
+|       |       |  _    ||   _   ||  |  | ||  |  | ||       ||    _   | 
+|_     _| ____  | |_|   ||  |_|  ||   |_| ||   |_| ||    ___||   | |  | 
+  |   |  |____| |       ||       ||       ||       ||   |___ |   |_|  | 
   |   |         |  _   | |       ||  _    ||  _    ||    ___||    __   |
   |   |         | |_|   ||   _   || | |   || | |   ||   |___ |   |  |  |
   |___|         |_______||__| |__||_|  |__||_|  |__||_______||___|  |__|
@@ -43,14 +41,28 @@ printf "
 reqirements() {
 if [ ! -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
 echo -ne "\e[0m[⬇] Installing Reqirements & FONTS... \r"
-command -v tput > /dev/null 2>&1 || { apt install ncurses-utils &> /dev/null ; clear ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+command -v tput > /dev/null 2>&1 || { apt install ncurses-utils &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 if [[ "$connection" != 0 ]]
 then clear
 echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
    exit
 fi; }
 tput civis
-command -v figlet > /dev/null 2>&1 || { pkg install figlet -y &> /dev/null; clear; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+command -v figlet > /dev/null 2>&1 || { pkg install figlet -y &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+if [[ "$connection" != 0 ]]
+then clear
+echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
+   exit
+fi; }
+
+command -v ruby > /dev/null 2>&1 || { pkg install ruby -y &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+if [[ "$connection" != 0 ]]
+then clear
+echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
+   exit
+fi; }
+
+command -v lolcat > /dev/null 2>&1 || { pkg install lolcat &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 if [[ "$connection" != 0 ]]
 then clear
 echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
@@ -84,10 +96,45 @@ fi
 
 options() {
 if [ -f /data/data/com.termux/files/usr/share/figlet/'Shadow S.flf' ];then
-printf "Enter a Text Here > \e[0m"
+printf "Enter a Text Here > "
 read input
 if [[ $input = "kill" ]] || [[ $input = "exit" ]] || [[ $input = "Kill" ]] || [[ $input = "Exit" ]] || [[ $input = "KILL" ]] || [[ $input = "EXIT" ]]; then
-echo -e "\e[91mAbort.\n" ; exit 0
+echo -e "\e[91mAbort.\e[0m\n" ; exit 0
+
+elif [[ $input = "reset" ]] || [[ $input = "Reset" ]] || [[ $input = "RESET" ]]; then
+clear ; termux-reload-settings ; printf "$NC" ; t-banner ; printf "$NC" ; options
+
+elif [[ $input = "black" ]] || [[ $input = "Black" ]] || [[ $input = "BLACK" ]]; then
+clear ; printf "$BD$BL" ; t-banner ; printf "$BD$BL" ; options
+
+elif [[ $input = "red" ]] || [[ $input = "Red" ]] || [[ $input = "RED" ]]; then
+clear ; printf "$BD$R" ; t-banner ; printf "$BD$R" ; options
+
+elif [[ $input = "green" ]] || [[ $input = "Green" ]] || [[ $input = "GREEN" ]]; then
+clear ; printf "$BD$G" ; t-banner ; printf "$BD$G" ; options
+
+elif [[ $input = "yellow" ]] || [[ $input = "Yellow" ]] || [[ $input = "YELLOW" ]]; then
+clear ; printf "$BD$Y" ; t-banner ; printf "$BD$Y" ; options
+
+elif [[ $input = "blue" ]] || [[ $input = "Blue" ]] || [[ $input = "BLUE" ]]; then
+clear ; printf "$BD$B" ; t-banner ; printf "$BD$B" ; options
+
+elif [[ $input = "pink" ]] || [[ $input = "Pink" ]] || [[ $input = "PINK" ]]; then
+clear ; printf "$BD$P" ; t-banner ; printf "$BD$P" ; options
+
+elif [[ $input = "clay" ]] || [[ $input = "Clay" ]] || [[ $input = "CLAY" ]]; then
+clear ; printf "$BD$C" ; t-banner ; printf "$BD$C" ; options
+
+elif [[ $input = "white" ]] || [[ $input = "White" ]] || [[ $input = "WHITE" ]]; then
+clear ; printf "$BD$W" ; t-banner ; printf "$BD$W" ; options
+
+elif [[ $input = "rgb" ]] || [[ $input = "Rgb" ]] || [[ $input = "RGB" ]]; then
+clear ; printf "$BD" ; t-banner | $E1 ; printf "$BD" ; options | $E1
+
+elif [[ $input = "srgb" ]] || [[ $input = "Srgb" ]] || [[ $input = "SRGB" ]]; then
+clear ; printf "$BD" ; t-banner | $E0 ; printf "$BD" ; options | $E0
+
+
 else echo;echo
 figlet -f "3D Diagonal" "$input"
 figlet -f '3-D' "$input"
@@ -365,7 +412,7 @@ figlet -f 'USA Flag' "$input"
 figlet -f 'Univers' "$input"
 figlet -f 'Wavy' "$input"
 figlet -f 'Weird' "$input"
-figlet -f 'Whimsy' "$input"
+figlet -f 'Whimsy' "$input";echo
 fi
 fi
 }
