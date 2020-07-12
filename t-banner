@@ -62,7 +62,7 @@ echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
    exit
 fi; }
 
-command -v lolcat > /dev/null 2>&1 || { pkg install lolcat &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+command -v lolcat > /dev/null 2>&1 || { gem install lolcat &> /dev/null ; connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 if [[ "$connection" != 0 ]]
 then clear
 echo -e "\033[1;91m[\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
