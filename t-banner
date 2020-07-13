@@ -22,6 +22,28 @@ E1='lolcat -a -t -d 1 -s 500'
 
 #>.........................................
 
+if [[ "$1" == "-h" ]] || [[ "$1" == "-help" ]]; then
+  echo""
+  echo "@`basename $0`~"
+  echo "———————————————————"
+  echo -e "\e[1;mColors :  [ Reset ]\e[0m"
+  echo -e "\e[1;90mColors :  [ Black ]\e[0m"
+  echo -e "\e[1;91mColors :  [ Red   ]\e[0m"
+  echo -e "\e[1;92mColors :  [ Green ]\e[0m"
+  echo -e "\e[1;93mColors :  [ Yellow]\e[0m"
+  echo -e "\e[1;94mColors :  [ Blue  ]\e[0m"
+  echo -e "\e[1;95mColors :  [ Pink  ]\e[0m"
+  echo -e "\e[1;96mColors :  [ Cyan  ]\e[0m"
+  echo -e "\e[1;97mColors :  [ White ]\e[0m"
+  echo -e "Effect :  [ Rgb   ]
+Effect :  [ Srgb  ]" | lolcat -t -F 2
+  echo "———————————————————"
+  echo""
+  exit 0
+fi
+
+#>.........................................
+
 t-banner() {
 clear;
 printf "
@@ -121,7 +143,7 @@ clear ; printf "$BD$B" ; t-banner ; printf "$BD$B" ; options
 elif [[ $input = "pink" ]] || [[ $input = "Pink" ]] || [[ $input = "PINK" ]]; then
 clear ; printf "$BD$P" ; t-banner ; printf "$BD$P" ; options
 
-elif [[ $input = "clay" ]] || [[ $input = "Clay" ]] || [[ $input = "CLAY" ]]; then
+elif [[ $input = "cyan" ]] || [[ $input = "Cyan" ]] || [[ $input = "CYAN" ]]; then
 clear ; printf "$BD$C" ; t-banner ; printf "$BD$C" ; options
 
 elif [[ $input = "white" ]] || [[ $input = "White" ]] || [[ $input = "WHITE" ]]; then
